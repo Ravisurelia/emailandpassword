@@ -50,7 +50,7 @@ form {
   /* border: 2px solid black; */
   text-align: left;
   padding: 5px;
-  height: 197.6px;
+  height: 211.6px;
 }
 
 .password {
@@ -77,7 +77,7 @@ input {
 }
 
 button {
-  margin-top: 25px;
+  margin-top: 15px;
   background-color: black;
   color: white;
   width: 210px;
@@ -94,9 +94,10 @@ button:hover {
   font-size: 12px;
   color: red;
   width: 200px;
-  height: 40px;
+  height: 30px;
   margin: 0;
   padding: 0;
+  font-style: italic;
 }
 
 .conditions {
@@ -112,4 +113,57 @@ button:hover {
   margin: 0;
   padding: 0;
   margin-top: 5px;
+}
+
+.conditions_last {
+  font-size: 12px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+}
+
+@media screen and (max-width: 720px) and (min-width: 400px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    padding-top: 0%;
+  }
+
+  form {
+    width: 300px;
+    height: 500px;
+  }
+
+  .password {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  .email {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    /* border: 2px solid black; */
+    text-align: left;
+    padding: 5px;
+    height: auto;
+  }
+
+  .heading {
+    width: 100vw;
+    height: 40px;
+    background-color: black;
+    margin-top: 0%;
+  }
+
+  input {
+    width: 200px;
+    height: 25px;
+    margin-top: 10px;
+  }
 }

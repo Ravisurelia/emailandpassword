@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {MdClose} from "react-icons/md";
+import {GoPrimitiveDot} from "react-icons/go";
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
@@ -8,7 +8,7 @@ export default class Form extends Component {
     constructor() {
         super();
         this.state = {
-          email: "",
+          emailadd: "",
           password: "",
           emailError: "",
           passwordError: "",
@@ -21,14 +21,13 @@ export default class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.checkingEmail = this.checkingEmail.bind(this);
         this.checkingPassword = this.checkingPassword.bind(this);
-        this.handleCondition = this.handleCondition.bind(this);
     
       }
 
       handleChange(e) {
-        const { data, value } = e.target;
+        const { name, value } = e.target;
         this.setState({
-          [data]: value
+          [name]: value
         });
 
         return;
@@ -40,39 +39,38 @@ export default class Form extends Component {
         return;
       }
 
-      checkingField(data) {
-        let isValid = false;
-        if (data === "email") isValid = this.checkingEmail();
-        else if (data === "password") isValid = this.checkingPassword();
-        return isValid;
-      }
-
-      handleCondition (e){
-          if (this.state.password === ""){
-              return <MdClose />
-          }
-      }
 
       handleSubmit(e) {
         e.preventDefault();
         let fields = [
-          "email",
-          "password",
+          "emailadd",
+          "password"
         ];
         let isValid = true;
         fields.forEach(field => {
           isValid = this.checkingField(field) && isValid;
         });
     
-        if (isValid) this.setState({ isFormSubmitted: true });
-        else this.setState({ isFormSubmitted: false });
+        if (isValid) {
+            this.setState({ isFormSubmitted: true });
+            alert("Thank you for submitting your data!");
+        }else {
+            this.setState({ isFormSubmitted: false });
+        }
     
         return this.state.isFormSubmitted;
       }
 
+      checkingField(data) {
+        let isValid = false;
+        if (data === "emailadd") isValid = this.checkingEmail();
+        else if (data === "password") isValid = this.checkingPassword();
+        return isValid;
+      }
+
       checkingEmail() {
         let emailError = "";
-        const value = this.state.email;
+        const value = this.state.emailadd;
         if (value.trim === "") emailError = "Email Address is required";
         else if (!emailRegex.test(value))
           emailError = "Email is not valid. Please enter a valid Email address!";
@@ -89,7 +87,7 @@ export default class Form extends Component {
         if (value.trim === "") passwordError = "Password is required";
         else if (!passwordRegex.test(value))
           passwordError =
-            "Password must contain at least 8 characters, 1 number, 1 upper, 1 lowercase and 1 symbol!";
+            "Invalid password! conditions not fulfilled. Please try again!";
     
         this.setState({
           passwordError
@@ -103,12 +101,6 @@ export default class Form extends Component {
                     <h3>Registration</h3>
                 </div>
                 
-                {this.state.isFormSubmitted ? (
-                <div>
-                    <h3>Thanks for signing up, find your details below:</h3>
-                    <div>Email Address: {this.state.email}</div>
-                </div>
-                ) : (
                 <div style={{textAlign:"center"}}>
                     <form onSubmit={this.handleSubmit} >
                         <div className="details">
@@ -117,8 +109,8 @@ export default class Form extends Component {
                                 <input
                                 type="email"
                                 placeholder="Email Address"
-                                name="email"
-                                value={this.state.email}
+                                name="emailadd"
+                                value={this.state.emailadd}
                                 onChange={this.handleChange}
                                 onBlur={this.handleBlur}
                                 autoComplete="off"
@@ -141,30 +133,28 @@ export default class Form extends Component {
                                 autoComplete="off"
                                 />
                                 <p className="conditions1">
-                                    8 or more letters.
+                                    <GoPrimitiveDot /> 8 or more letters.
                                 </p>
                                 <p className="conditions">
-                                    1 or more lowercase letter.
+                                    <GoPrimitiveDot /> 1 or more lowercase letter.
                                 </p>
                                 <p className="conditions"> 
-                                    1 or more uppercase letter.
+                                    <GoPrimitiveDot /> 1 or more uppercase letter.
                                 </p>
                                 <p className="conditions">
-                                    1 or more number.
+                                    <GoPrimitiveDot /> 1 or more number.
                                 </p>
-                                <p className="conditions">
-                                    1 or more symbol.
-                                </p>
-                                {/* {this.state.passwordError && (
+                                <p className="conditions_last">
+                                    <GoPrimitiveDot /> 1 or more symbol.
+                                {this.state.passwordError && (
                                     <div className="errorMsg">{this.state.passwordError}</div>
-                                    )} */}
+                                )}
+                                </p>
                                 <button>Submit</button>
                             </div>
                         </div>
                     </form>
-                </div>
-                )}
-                
+                </div>   
             </div>
         )
     }

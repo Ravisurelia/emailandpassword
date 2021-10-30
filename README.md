@@ -1,3 +1,11 @@
+Project: Email & Password submit
+
+Overview: Basic email and password submitting task with React.js, HTML(jsx) , basic CSS (No Bootstarp or Bulma).
+
+Other dependencies used: react-icon for the symbol
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
