@@ -1,13 +1,115 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.heading {
+  width: 100vw;
+  height: 40px;
+  background-color: black;
+  margin-top: 0%;
+}
+
+h3 {
+  margin-top: 0%;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 5px;
+  margin-left: 0;
+}
+
+.imp {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  /* border: 2px solid black; */
+  text-align: left;
+  padding: 5px;
+  height: 197.6px;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  /* border: 2px solid black; */
+  text-align: left;
+  padding: 5px;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+  height: 25px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 25px;
+  background-color: black;
+  color: white;
+  width: 210px;
+  height: 30px;
+  /* border-radius: 5px; */
+}
+
+button:hover {
+  background-color: #333333;
+  color: white;
+}
+
+.errorMsg {
+  font-size: 12px;
+  color: red;
+  width: 200px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.conditions {
+  font-size: 12px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+
+.conditions1 {
+  font-size: 12px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
 }
